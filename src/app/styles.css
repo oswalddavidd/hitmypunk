@@ -1,0 +1,163 @@
+/* 🌌 General Styles */
+body, html {
+    background-color: #46b3d4;
+    color: white;
+    font-family: "Montserrat", sans-serif; /* Apply Montserrat to everything */
+    margin: 0;
+    padding: 0;
+  }
+
+  .horizontal-center {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: flex-start; /* Keeps content at the default vertical position */
+    gap: 16px; /* Adds spacing between the image and text */
+  }
+  
+  /* 🚀 Navbar */
+  .navbar {
+    position:static;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background: #46b3d4;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    flex-wrap: wrap; /* Prevents items from getting cut off */
+  }
+  
+  /* 🔥 Navbar Shadow Effect When Scrolling */
+  .navbar.scrolled {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8); /* Black shadow effect */
+  }
+  
+  /* 🌀 Logo */
+  .logo img {
+    height: auto; /* Maintain aspect ratio */
+    max-height: 40px; /* Prevent stretching */
+    width: auto;
+    filter: drop-shadow(0px 0px 10px white);
+  }
+  
+  /* 🌠 Navigation Buttons */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* 🎮 Play Now Button */
+  .play-btn {
+    background: linear-gradient(45deg, #0ff, #00f);
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .play-btn:hover {
+    background: linear-gradient(45deg, #00f, #0ff);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    transform: scale(1.05);
+  }
+  
+  .play-btn:active {
+    transform: scale(0.95);
+  }
+  
+  /* 🔗 Connect Wallet Button */
+  .wallet-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 24px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .wallet-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+  }
+  
+  .wallet-btn:active {
+    transform: scale(0.95);
+  }
+  
+
+  /* 📱 Mobile Responsive */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .wallet-btn {
+      width: 100%; /* Prevents it from getting cut off */
+    }
+  }
+  
+  @keyframes bounceLoop {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* 🌟 Initial Pop-in Animation */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .bouncy {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between text and image */
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .game-icon {
+    width: 25%; /* Adjust as needed */
+    height: auto;
+    animation: bounceIn 0.6s ease-out, bounceLoop 1.5s infinite ease-in-out 0.6s;
+  }
+  
+  
+  
