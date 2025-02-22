@@ -158,6 +158,17 @@ body, html {
     height: auto;
     animation: bounceIn 0.6s ease-out, bounceLoop 1.5s infinite ease-in-out 0.6s;
   }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 600px;
+  }
+
+  .hole {
+    width: 200px;
+    height: 200px;
+  }
   
   
   
