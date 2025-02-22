@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { connectWallet } from "@/utils/connectWallet";
 import Image from "next/image";
-import Link from "next/link";
-import Logo from "../../../public/logo.png";
 
 export default function Navbar() {
   
