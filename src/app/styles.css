@@ -170,5 +170,71 @@ body, html {
     height: 200px;
   }
   
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Above everything else */
+  }
   
+  /* 🎉 Modal Content */
+  .modal-content {
+    position: relative;
+    background: white;
+    color: black;
+    padding: 20px;
+    width: 300px; /* Adjust as needed */
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  /* Form Input & Submit */
+  .input-field {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .submit-btn {
+    background: rgb(2, 141, 255);
+    color: white;
+    padding: 12px 24px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .submit-btn:hover {
+    background: rgba(0, 255, 13, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+  }
   
