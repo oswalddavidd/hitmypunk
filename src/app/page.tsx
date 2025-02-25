@@ -7,10 +7,15 @@ import gameIcon from "../../public/game-icon.png";
 import "./styles.css";
 import Hole from "../../public/hole2.png";
 import Mole from "../../public/mole2.png";
-import { useWallet } from "./WalletContext";
+import { useWallet } from "./WalletContext";// Import your sound file
+import CustomDropdown from "./components/CustomDropdown"
+
 
 export default function Home() {
   
+  const [selectedCurrency, setSelectedCurrency] = useState("ETH");
+
+
   const { walletAddress, connectWalletHandler } = useWallet();
   const [showModal, setShowModal] = useState(false);
 
@@ -21,14 +26,6 @@ export default function Home() {
     if (walletAddress) {
       setShowModal(true);
     }
-  };
-
-  const [selectedCurrency, setSelectedCurrency] = useState("ETH");
-
-  const entryPrices: Record<string, string> = {
-    ETH: "10.000 ETH",
-    BTC: "10.000 BTC",
-    USDT: "10.000 USDT",
   };
 
   const [showBox, setShowBox] = useState(false);
@@ -52,9 +49,14 @@ export default function Home() {
   }
 
   function wackMole(index: number){
-      if(!moles[index]) return;
-      setMoleVisibility(index, false);
-      setScore((score) => score+1);
+    if(!moles[index]) return;
+    
+    // Play click sound effect
+    const wackSound = new Audio("/wack.mp3");
+    wackSound.play();
+
+    setMoleVisibility(index, false);
+    setScore((score) => score+1);
   }
 
   useEffect(() => {
@@ -75,7 +77,8 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <h1>Score {score}</h1>
+      <h1 className="score-text">Score</h1>
+      <h1 className="score-text">{score}</h1>
       <div className="horizontal-center">
         {/* Show the image button if showBox is false */}
         {!showBox && (
@@ -110,23 +113,14 @@ export default function Home() {
         {showModal && (
           <div className="modal-overlay">
             <div className="modal-content">
-              <h2>Ready to Play???</h2>
+              <h3 className="modal-headers">READY TO PLAY ???</h3>
               <form onSubmit={handleFormSubmit}>
                 <h3>Choose Token</h3>
-                <select 
-                  className="input-field" 
-                  required 
-                  onChange={(e) => setSelectedCurrency(e.target.value)}
-                  value={selectedCurrency} 
-                  >
-                  <option value="ETH"> ETH </option>
-                  <option value="USDT"> USDT </option>
-                  <option value="BTC"> BTC </option>  
-                </select> 
-                <div>
-                  <b>Entry Price: </b>
-                  <b>{entryPrices[selectedCurrency]}</b> 
-                </div>
+                <CustomDropdown
+                    options={["ETH", "USDT", "BTC"]}
+                    selected={selectedCurrency}
+                    setSelected={setSelectedCurrency}
+                  />
                 <button type="submit" className="submit-btn">
                   Submit
                 </button>

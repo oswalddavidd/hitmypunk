@@ -1,4 +1,7 @@
 /* 🌌 General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 body, html {
     background-color: #46b3d4;
     color: white;
@@ -188,12 +191,12 @@ body, html {
     position: relative;
     background: white;
     color: black;
-    padding: 20px;
-    width: 300px; /* Adjust as needed */
+    padding: 40px;
+    width: 30%;
+    height: 50%; /* Adjust as needed */
     border-radius: 10px;
     animation: fadeIn 0.5s ease-in-out;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
   }
   
   /* Close Button */
@@ -237,4 +240,145 @@ body, html {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     transform: scale(1.05);
   }
+
+  .modal-headers {
+    font-size: 30px;
+    font-weight: bolder;
+    color:rgb(0, 187, 255);
+    text-align: center;
+    text-shadow: 3px 3px 10px rgba(0, 187, 255, 0.4), 
+                 -3px -3px 10px rgba(0, 187, 255, 0.3);
+    margin-bottom: 10%;
+  }
+
+  .score-text {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffff03;
+    text-shadow: 3px 3px 0px #ff0fd7, 
+                 -3px -3px 0px #ff0000, 
+                 0px 0px 10px rgba(255, 204, 0, 0.8);
+    letter-spacing: 2px;
+  }
+
+  .input-field {
+    appearance: none;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hover effect */
+  .input-field:hover {
+    border-color: #007bff;
+  }
+  
+  /* Focus effect */
+  .input-field:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Customize dropdown arrow */
+  .input-field {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23007bff' d='M5 7l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+  }
+  
+  /* Ensure dropdown options are readable */
+  .input-field option {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .input-field option {
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  /* Styling for dropdown when expanded (only works in some browsers) */
+  .input-field:focus option {
+    background-color: #f8f9fa;
+  }
+  
+  /* Highlight selected option */
+  .input-field option:checked {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* Dropdown Container */
+  .custom-dropdown {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  /* Selected Item (Trigger) */
+  .dropdown-selected {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  .dropdown-selected:hover {
+    border-color: #007bff;
+  }
+  
+  /* Dropdown List */
+  .dropdown-list {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    overflow: hidden;
+  }
+  
+  /* Dropdown Items */
+  .dropdown-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Highlight Selected Option */
+  .dropdown-item.selected {
+    background-color: #e0f0ff;
+    font-weight: bold;
+  }
+  
+  /* Arrow */
+  .dropdown-arrow {
+    color: gray;
+    transition: transform 0.2s ease-in-out;
+  }
+
   
