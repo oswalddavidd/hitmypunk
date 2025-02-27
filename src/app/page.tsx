@@ -5,8 +5,8 @@ import Image from "next/image";
 import Navbar from "./components/navbar";
 import gameIcon from "../../public/game-icon.png";
 import "./styles.css";
-import Hole from "../../public/hole2.png";
-import Mole from "../../public/mole2.png";
+import Hole from "../../public/aset2.png";
+import Mole from "../../public/aset1.png";
 import { useWallet } from "./WalletContext";// Import your sound file
 import CustomDropdown from "./components/CustomDropdown"
 
