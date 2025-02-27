@@ -381,4 +381,73 @@ body, html {
     transition: transform 0.2s ease-in-out;
   }
 
+  .game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 5%;
+  }
+  
+  .game-section {
+    flex: 1;
+  }
+  
+  .leaderboard {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1.5rem;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  .leaderboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ffcc00, #ff6699, #66ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: bounce 1.2s infinite;
+  }
+  
+  .leaderboard-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .leaderboard-item {
+    font-weight: bold;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .leaderboard-item:hover {
+    transform: scale(1.1);
+    color: #ff6699;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 2px 2px 8px rgba(255, 204, 0, 0.8);
+    }
+    to {
+      text-shadow: 2px 2px 12px rgba(255, 102, 153, 0.8);
+    }
+  }
+  
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  
   

@@ -14,7 +14,10 @@ import CustomDropdown from "./components/CustomDropdown"
 export default function Home() {
   
   const [selectedCurrency, setSelectedCurrency] = useState("ETH");
-
+  const [leaderboard, setLeaderboard] = useState([
+    { name: "0x11asfabshadw12", score: 0 },
+    { name: "0x121wdasnajadwa", score: 0 }
+  ]);
 
   const { walletAddress, connectWalletHandler } = useWallet();
   const [showModal, setShowModal] = useState(false);
@@ -74,13 +77,18 @@ export default function Home() {
 
   }, [moles]);
 
+  function updateLeaderboard(newScore: number) {
+    setLeaderboard((prevLeaderboard) => {
+      const updated = [...prevLeaderboard, { name: "Player", score: newScore }];
+      return updated.sort((a, b) => b.score - a.score).slice(0, 5); // Keep top 5
+    });
+  }
+
   return (
     <div>
       <Navbar />
-      <h1 className="score-text">Score</h1>
-      <h1 className="score-text">{score}</h1>
-      <div className="horizontal-center">
-        {/* Show the image button if showBox is false */}
+      <h1 className="score-text">Score: {score}</h1>
+      <div className="game-container">
         {!showBox && (
           <Image
             src={gameIcon}
@@ -92,50 +100,55 @@ export default function Home() {
             style={{ cursor: "pointer" }}
           />
         )}
-        
-        {/* Show the box if showBox is true */}
-        {showBox && (
-          <div className="grid">
-            {moles.map((isMole , idx) => (
-              <Image 
-                src={isMole ? Mole : Hole} 
-                alt="Hole" 
-                className="hole"
-                key={idx}
-              onClick={() => {
-                wackMole(idx);
-              }}
-              />
-            ))}
-          </div>
-        )}
 
-        {showModal && (
-          <div className="modal-overlay">
-            <div className="modal-content">
-              <h3 className="modal-headers">READY TO PLAY ???</h3>
-              <form onSubmit={handleFormSubmit}>
-                <h3>Choose Token</h3>
-                <CustomDropdown
-                    options={["ETH", "USDT", "BTC"]}
-                    selected={selectedCurrency}
-                    setSelected={setSelectedCurrency}
-                  />
-                <button type="submit" className="submit-btn">
-                  Submit
-                </button>
-              </form>
-              <button
-                className="close-btn"
-                onClick={() => setShowModal(false)}
-              >
-                X
-              </button>
+        {showBox && (
+          <div className="game-section">
+            <div className="grid">
+              {moles.map((isMole, idx) => (
+                <Image
+                  src={isMole ? Mole : Hole}
+                  alt="Hole"
+                  className="hole"
+                  key={idx}
+                  onClick={() => wackMole(idx)}
+                />
+              ))}
             </div>
           </div>
         )}
 
+        {/* Leaderboard Section */}
+        {showBox && (
+          <div className="leaderboard">
+            <h2>Leaderboard</h2>
+            <ul>
+              {leaderboard.map((player, index) => (
+                <li key={index}>
+                  {index + 1}. {player.name} - {player.score}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
+
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3 className="modal-headers">READY TO PLAY ???</h3>
+            <form onSubmit={handleFormSubmit}>
+              <h3>Choose Token</h3>
+              <CustomDropdown
+                options={["ETH", "USDT", "BTC"]}
+                selected={selectedCurrency}
+                setSelected={setSelectedCurrency}
+              />
+              <button type="submit" className="submit-btn">Submit</button>
+            </form>
+            <button className="close-btn" onClick={() => setShowModal(false)}>X</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
